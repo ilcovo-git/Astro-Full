@@ -15,6 +15,6 @@ export default defineConfig({
   // })
   integrations: [tailwind(), icon(), solidJs(), mdx()],
 
-  output: 'server',
+  output: 'hybrid',
   adapter: cloudflare()
 });
