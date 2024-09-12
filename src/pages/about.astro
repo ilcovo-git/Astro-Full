@@ -1,0 +1,19 @@
+---
+import { Counter } from "@components/Counter";
+import MainLayout from "@layouts/MainLayout.astro";
+---
+
+<MainLayout title="About Page">
+	
+	<h1>About Astro</h1>
+	<h2>En Astro dentro de la carpeta de pages, todos los ficheros .astro son como ruta de la URL.
+		En este caso es una ruta /about.astro
+	</h2>
+
+	<Counter 
+transition:persist="counter"
+transition:persist-props
+client:load 
+initialValue={20} />
+	
+</MainLayout>

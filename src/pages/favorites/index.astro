@@ -1,0 +1,23 @@
+---
+import PokemonsLayout from "@layouts/PokemonsLayout.astro";
+import { Counter } from "@components/Counter";
+import { FavoritesPokemons } from "@components/pokemons/FavoritesPokemons";
+
+---
+
+
+<PokemonsLayout>
+    <h1>Mis Pokemons Favoritos</h1>
+
+    <FavoritesPokemons client:only="solid-js"/>
+
+    <Counter 
+        transition:persist="counter"
+        transition:persist-props
+        client:load 
+        initialValue={20} />
+    <!-- <Counter client:visible /> -->
+    <!-- <Counter client:only="solid-js" /> -->
+    
+</PokemonsLayout>
+

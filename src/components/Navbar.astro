@@ -1,0 +1,42 @@
+---
+const links = [
+    { href: '/', text: 'Home' },
+    { href: '/ejemplos', text: 'Listados Ejemplos' },
+    { href: '/about', text: 'About' },
+    { href: '/pokemons', text: 'Mis Pokemones' },
+    { href: '/favorites/', text: 'Favoritos Pokemons' },
+    { href: '/blog/', text: 'Blog MarkDown' },
+    { href: '/blog-collections/', text: 'Blog Collections' },
+    { href: '/images/', text: 'Optimizacion Imagenes' },
+    { href: '/blog-final/1', text: 'Blog Final con Paginacion y Autor Relation' },
+    { href: '/authors', text: 'Autores' },
+    { href: '/api/', text: 'Api RestFul' },
+]
+
+const currentPath = Astro.url.pathname;
+---
+<nav class="p-5 m-3 space-x-5 text-red-700">
+    {
+    links.map((link) => (
+        <a href={link.href}
+            class:list={[
+                "text-red-800 dark:text-gray-200 ",
+                {
+                'border-b-2 border-blue-500': currentPath === link.href,
+                }
+            ]}
+        >
+            {link.text}
+            </a>)
+    )
+    }
+
+
+    <!-- <a href="/"> Home </a>
+    <a href="/ejemplos"> Listados Ejemplos </a>
+    <a href="/about"> About </a>
+    <a href="/pokemons"> Mis Pokemones </a>
+    <a href="/favorites/"> Favoritos Pokemons </a> -->
+</nav>
+
+<hr>

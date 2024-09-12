@@ -1,0 +1,23 @@
+---
+import AuthorCard from "@components/blog/AuthorCard.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const authors = await getCollection('author');
+console.log(authors[0].data.name);
+
+
+---
+
+<MainLayout title="Listado de Autores">
+    <h1>Listado de Autores del Blog </h1>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      {
+        authors.map((author) => (
+          <AuthorCard author={author} />
+        ))
+      }
+
+    </section>
+</MainLayout>

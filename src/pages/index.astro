@@ -1,16 +1,165 @@
 ---
 
+import MainLayout from "../layouts/MainLayout.astro";
+
+const autor = "Giuseppe Ferrero";
+const title = "Curso Full - Astro - Framework...";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home Page">
+	
+	<h1 class="text-3xl font-bold underline">Curso Full - Astro - Framework...</h1>
+	<h2>Para web orientadas a contenidos</h2>
+	<h3>Por: {autor} <div id="year-container" ></div></h3>
+	
+	<div class="p-4" >
+
+		<a href="/ejemplos/dinamico-statico" class="text-2xl font-semibold text-blue-700">Ejemplo de Dinamicio y Estatico.</a>
+		
+		<p class="mt-5"> Fecha del momento Statico: { new Date().toLocaleTimeString() }  --> esta fecha al hacer el build queda graba a fuego es estatico. 
+				(dado que no hay nada de javascript)</p>
+				<p>¿entonce como lo hacemos dinamico?</p>
+			<p>Para hacerlo dinamico, podemos montar un Isla con framework, pero siendo tan simple podemos usar javascript, para ello se debe hacer uso de un archivo .js</p>
+			<p id="current-time"> Fecha Real Dinamico: </p>
+
+		</div>
+		
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Reutilización de componentes</a>
+			<p> se sugiere crear una carpeta de component por ejemplo la barra del navegador Navbar.astro</p>
+		</div>
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Layouts y Props</a>
+			<p>
+
+				El layouts es un componente que se puede reutilizar en varias paginas, por ejemplo un footer o un header.
+				El Layot Global normalemnte es los tags de html, header body... MainLayout.astro
+				
+				Nota : Introducimos el concepto de props, que son los parametros que se le pasan a un componente. en este caso el autor y el titulo.
+			</p>
+		</div>
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Estilos por componente y globales</a>
+
+			<p>
+				el Style se puede definir localmente en scope solo en el componente que lo definimos o globalmente
+			</p>
+		</div>
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Pagina 404</a>
+		</div>
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">View Transitions</a>
+			<p>
+				View Transitions es una forma de animar la transicion de una pagina a otra.
+			</p>
+		</div>
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Sección 3 : Ruta Dinamicas y Estaticas : PAgina Estatica GENERADO DINAMICAMENTE</a>
+		</div>
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Para eso vamos a montar una App de Pokemones</a>
+			<li>
+				<ul>El Fetch a pokemon</ul>
+				<ul>la interface del pokemons</ul>
+				<ul>uso de la components card con sus props</ul>
+				<ul>pantalla id del pokemon por paramentro ... pero siendo estatico necesita getStaticPaths()` function required for dynamic routes</ul>
+				<ul>estilo condicionales</ul>
+				<ul>funciona de paginate que se desestructura de getStaticPaths </ul>
+				<ul>En el tsconfig.json podemos parametrizar los alias  "@components/*": ["./src/components/*"], </ul>
+				<ul>MetaData y visualización en las redes sociales </ul>
+			</li>
+		</div>
+
+
+		
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Seccion 4 : Dinamismo a la web estatica</a>
+			<li>
+				<ul>indicador de ruta activa del navbar, con el condicional class:list</ul>
+				<ul>indicador de ruta activa del navbar</ul>
+				<ul>Astro icons , podemos buscar en https://icon-sets.iconify.design/ los icons que queremos y añadirlo. Tienes que estar en src/icons</ul>
+				<ul>Animar el heart, y cambiar el estado, para guardarlo en este caso el localstorage. lo vamos hacer sin integración de librearías islas, lo hacemos con java VANILLA</ul>
+				<ul>Ciclo de vida del View Transition</ul>
+				<ul>Islad con SolidJS para visualizar los favoritePokemons. Directivas del lado del cliente hay que decirle a Astro que la isla !Funcione! tiene que cargarlo y reactive... eso son las directiva</ul>
+				<ul>Con las Islas : pasar Props y Componentes, desde la base de datos por ejemplo. y mantaner el estado de la componenete entre distintas paginas, como ejemplo un counter ... transition:persist="counter"</ul>
+				<ul>Enviar un componenet como ejemplo : title hacia la isla para que lo respecte el fornato por ejemplo.</ul>
+				<ul>mostrar el listado de favoritoa, recuperado desde el localStorage. con el For de SolidJS</ul>
+				<ul></ul>
+			</li>
+		</div>
+
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Sección 5 y 6 : Colecciones e Imagenes</a>
+			<ul>dentro de la carpeta src/content</ul>
+			<ul>Optimiazion de las imagenes</ul>
+			<ul>Markdown y MDX , es un lenguaje de sintaxi simplificad de HTML. instalamos MDX Astro para poder usarlo.</ul>
+			<ul>Layouts para MDX.</ul>
+			<ul>Colleciones de la carpeta content con su fichero de config.ts</ul>
+			<ul>Optimicaciones de Imagenes</ul>
+			<ul>src/set de la image</ul>
+			<ul>Imagenes en colecciones</ul>
+			<ul>colecciones : getCollection, getEntry , filtro de las colleciones, y relaciones con otra COLLECIONES en config.ts con reference.</ul>
+		</div>
+
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Sección 7 : Themes - Listos para usar para tu Web</a>
+			<ul>Astro Themes</ul>
+			<ul>Documentación con Starlight y Agrergar Dlocumentacion</ul>
+			<ul>Themes Tercero : Astro-Sphere. muy bonito!!</ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+		
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Seccion 8 : RSS - De momento la saltamos. sirve para exponer nuestros blogs a terceros.</a>
+		</div>
+		
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Seccion : 9 - Server Side Rendering y Endpoints</a>
+			<ul>Con Astro podemos generar de forma 1) statica , 2) lado Servidor : con node </ul>
+			<ul>Restful API estáticos: de forma dinamica nos traemos los datos desde la base de datos y se genera como JSON de forma estatica en la dist de producción.</ul>
+			<ul>SSR Adapters : si quieremos manda el slug del post, y siendo construida de forma estatica los queryPArameters de la ruta no existen. ¿como lo solucionamo?
+				con un adapter de integración en este caso usamo @astrojs/node y cloudfare, 
+			</ul>
+			<ul>export const prerender = false; nos permite que se genere de forma dinamica la pagina en la cual la ponemos. Static es el modo por defecto.</ul>
+			<ul>hydrid vs server vs static. el hybrid es muy muy parecido al static, al momoneto de hacer el build, mantiene el static pero si queremos quye alguna pagina se gnere de forma dinamica server se los decimos con prerender=false</ul>
+			<ul>Ejemplo de hydrid</ul>
+			<p class="text-5xl">
+				{ new Date().toLocaleTimeString() }
+			</p>
+			<ul>y por ejemplo si estas en modo server y quiere que la pagina about sea static le pones export const prerender = true</ul>
+			<ul>QueryParams</ul>
+			<ul>Segmentos de Ruta</ul>
+			<ul>Post, Put, Delete ::: Endpoints</ul>
+			<ul>Despliegue a Cloudflare</ul>
+		</div>
+		
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Seccion 10 : Astro DB</a>
+			<ul>Base de dato SQL , al instalarla crear la configuración de las tablas, y un fichero ts seed para el desarrollo</ul>
+			<ul>Es una SQLLite el local, pero al hacer un push en cloudflare usamos la parte robusta de Cloud Astro Studio. (a Fernando le gusta más Prisma)</ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+		
+		<div class="p-4" >
+			<a href="/ejemplos/" class="text-2xl font-semibold text-blue-700">Reutilización de componentes</a>
+		</div>
+		
+		<script>
+			const currentYear = new Date().getFullYear();
+			
+			const divYear = document.querySelector('#year-container') as HTMLDivElement;
+			divYear.innerHTML = `<p>Año en Curso : ${currentYear}</p>`;
+			
+			const divTime = document.querySelector('#current-time') as HTMLDivElement;
+			setInterval(() => {
+				divTime.innerHTML = `<p>Fecha Real Dinamico: ${new Date().toLocaleTimeString()}</p>`;
+			}, 1000);
+			</script>
+
+</MainLayout>
